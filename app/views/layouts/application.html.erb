@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <%= javascript_include_tag 'jquery-1.4.1.min' %>
+  <%= javascript_include_tag 'application' %>
+</head>
+<body>
+  <div id='top'>
+    <h1>Flux</h1>
+  </div>
+  <div id='content'>
+    <% if !current_user %>
+      <%= link_to "Register", new_user_path %> |
+      <%= link_to "Log In", new_user_session_path %>
+    <% else %>
+      <%= link_to "My Account", user_path(current_user) %> |
+      <%= link_to "Logout", user_session_url, :method => :delete %>
+    <% end %>
+    
+    <%= yield %>
+  </div>
+</body>
+</html>

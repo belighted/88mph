@@ -50,7 +50,10 @@ Flux::Application.routes.draw do |map|
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
   
-  root :to => "welcome#index"
+  resources :users
+  resource :user_session
+  
+  root :to => "users#show"
 
   # See how all your routes lay out with "rake routes"
 
