@@ -1,7 +1,38 @@
-.bundle
-db/*.sqlite3
+# Rails locals
 log/*.log
 tmp/**/*
+config/database.yml
+db/*.sqlite3
+db/sphinx/*
+config/*.sphinx.conf
+log/*.pid
+
+# Ignore all backup files
+*~
+
+# Mac-specific files
+.DS_Store
+
+# Ignore Emacs auto saved files
+*#*#
+.#*
+.emacs*
+
+# Ignore autotest (cucumber, rspec, ...) local configuration
+.autotest
+
+# Ignore schema.rb
+db/schema.rb
+
+.idea
+
+# Merge files
+*.orig
+
+# Ignore mysql dump
+*.sql
+
+# defaults
+.bundle
 doc/api
 doc/app
-config/database.yml
