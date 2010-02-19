@@ -12,7 +12,7 @@ Flux.Tools = {
       click_event.preventDefault();
       var method = $(this).attr('data-method') || "get";
       $.ajax({url: $(this).attr('href'), type: method, dataType: 'html', success: function(data){
-        $('#content').html(data);
+        window.location.href = '/';
       }});
     });
   }
