@@ -3,14 +3,14 @@ source 'http://gemcutter.org'
 
 gem "rails", "3.0.0.beta"
 gem "pg"
-gem "authlogic", "2.1.3"
+#gem "authlogic"
 
 ## Bundle edge rails:
 # gem "rails", :git => "git://github.com/rails/rails.git"
 
 # ActiveRecord requires a database adapter. By default,
 # Rails has selected sqlite3.
-gem "sqlite3-ruby", :require => "sqlite3"
+#gem "sqlite3-ruby", :require => "sqlite3"
 
 ## Bundle the gems you use:
 # gem "bj"
