@@ -2,13 +2,15 @@
 <html>
 <head>
   <%= javascript_include_tag 'jquery-1.4.1.min' %>
-  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'rails' %>
+  <%= csrf_meta_tag %>
+
 </head>
 <body>
   <div id='top'>
     <h1>88mph</h1>
   </div>
-  <div id='content'>
+  <div id='container'>
     <% if !current_user %>
       <%= link_to "Register", new_user_path %> |
       <%= link_to "Log In", new_user_session_path %>
@@ -17,7 +19,9 @@
       <%= link_to "Logout", user_session_url, :method => :delete %>
     <% end %>
 
-    <%= yield %>
+    <div id='content'>
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>
