@@ -16,7 +16,7 @@
       <%= link_to "Log In", new_user_session_path %>
     <% else %>
       <%= link_to "My Account", user_path(current_user) %> |
-      <%= link_to "Logout", user_session_url, :method => :delete %>
+      <%= link_to "Logout", user_session_path, :method => :delete %>
     <% end %>
 
     <div id='content'>
