@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20100305145445) do
   end
 
   create_table "projects", :force => true do |t|
+    t.integer  "company_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
