@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
      @project = current_company.projects.build(params[:project])
       if @project.save
         flash[:notice] = "Project created!"
-        redirect_back_or_default projects_url(@project)
+        redirect_back_or_default project_url(@project)
       else
         render :action => :new
       end

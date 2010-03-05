@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20100305152713) do
   create_table "time_slots", :force => true do |t|
     t.datetime "start"
     t.datetime "end"
+    t.integer  "user_id"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

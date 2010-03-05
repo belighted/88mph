@@ -1,8 +1,8 @@
 <h1>What are you working on right now?</h1>
 
-<% form_for :time_slot do |f| %>
+<% form_for :time_slot, :url => timeline_path, :html => {:method => :put} do |f| %>
   <% @projects.each do |p| %>
-    <% f.radio_button :project_id, p.name %>
+    <%= f.radio_button :project_id, p.id %><%= f.label "project_id_#{p.id}", p.name %><br/>
   <% end %>
-  <% f.submit "Track time!" %>
+  <%= f.submit "Track time!" %>
 <% end %>

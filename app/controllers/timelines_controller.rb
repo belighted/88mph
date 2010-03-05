@@ -9,7 +9,7 @@ class TimelinesController < ApplicationController
   def update
     # TODO refactor all this crap and move it to some sort of model
     current_time = Time.now
-    new_project = current_company.projects.find(params[:project_id])
+    new_project = current_company.projects.find(params[:time_slot][:project_id])
     current_time_slot = current_user.current_time_slot
     if current_time_slot
       if current_time_slot.project != new_project
@@ -23,7 +23,7 @@ class TimelinesController < ApplicationController
       # We are working on nothing yet
       new_time_slot = current_user.time_slots.create(:project => new_project)
     end
-    redirect_to :edit # victory!
+    redirect_to edit_timeline_url # victory!
   end
 
 end
