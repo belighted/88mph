@@ -49,10 +49,12 @@ Flux::Application.routes.draw do |map|
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
-  
+
   resources :users
-  resource :user_session
-  
+  resource  :user_session
+  resource  :timeline
+  resources :time_slots
+
   root :to => "users#show"
 
   # See how all your routes lay out with "rake routes"

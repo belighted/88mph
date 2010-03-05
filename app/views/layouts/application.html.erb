@@ -11,14 +11,15 @@
     <h1>88mph<%= " | #{current_company}" if current_company %></h1>
   </div>
   <div id='container'>
-    <% if !current_user %>
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Log In", new_user_session_path %>
-    <% else %>
+    <% if current_user %>
+      <%= link_to "Dashboard", edit_timeline_path %> |
+      <%= link_to "Projects" %> |
       <%= link_to "My Account", user_path(current_user) %> |
       <%= link_to "Logout", user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Register", new_user_path %> |
+      <%= link_to "Log In", new_user_session_path %>
     <% end %>
-
     <div id='content'>
       <%= yield %>
     </div>
