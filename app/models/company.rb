@@ -1,6 +1,7 @@
 class Company < ActiveRecord::Base
 
   has_many :users
+  has_many :projects
 
   before_validation :set_name_from_domain_if_blank, :on => :create
 
