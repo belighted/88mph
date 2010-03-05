@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
 
   before_create :find_or_create_company_from_email_domain
 
+  def current_time_slot
+    self.time_slots.find(:conditions => { :end => nil })
+  end
+
   protected
 
   def find_or_create_company_from_email_domain
