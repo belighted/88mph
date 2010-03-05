@@ -1,0 +1,5 @@
+<h1>Projects of <%= @current_company %></h1>
+
+<% for current_company.projects do |proj| %>
+  <p>Project name : <%= proj.name %></p>
+<% end %>

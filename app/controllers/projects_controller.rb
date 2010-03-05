@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
      @project = current_company.projects.build(params[:project])
       if @project.save
         flash[:notice] = "Project created!"
-        redirect_back_or_default projects_url(@project)
+        redirect_back_or_default project_url(@project)
       else
         render :action => :new
       end
@@ -29,6 +29,13 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    @project = current_company.projects.find(params[:id])
+    if @project.update_attributes(params[:project])
+      flash[:notice] = "Project updated!"
+      redirect_to project_path(@project)
+    else
+      render :action => :edit
+    end
   end
 
 end
