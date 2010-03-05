@@ -1,9 +1,9 @@
 class CreateProjects < ActiveRecord::Migration
+
   def self.up
     create_table :projects do |t|
       t.references :company
       t.string :name
-
       t.timestamps
     end
   end
@@ -11,4 +11,5 @@ class CreateProjects < ActiveRecord::Migration
   def self.down
     drop_table :projects
   end
+
 end

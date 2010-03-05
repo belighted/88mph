@@ -2,10 +2,10 @@ class CreateTimeSlots < ActiveRecord::Migration
 
   def self.up
     create_table :time_slots do |t|
-      t.datetime :start
-      t.datetime :end
-      t.user :references
-      t.project :references
+      t.datetime   :start
+      t.datetime   :end
+      t.references :user
+      t.references :project
       t.timestamps
     end
   end

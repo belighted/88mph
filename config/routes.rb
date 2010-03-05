@@ -55,9 +55,8 @@ Flux::Application.routes.draw do |map|
   resources :users
   resources :projects
   resource  :user_session
-  resource  :user_session
 
-  root :to => "users#show"
+  root :to => "user_sessions#new"
 
   # See how all your routes lay out with "rake routes"
 
