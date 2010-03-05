@@ -8,7 +8,7 @@
 </head>
 <body>
   <div id='top'>
-    <h1>88mph</h1>
+    <h1>88mph<%= " | #{current_company}" if current_company %></h1>
   </div>
   <div id='container'>
     <% if !current_user %>
