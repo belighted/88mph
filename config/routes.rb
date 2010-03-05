@@ -50,10 +50,12 @@ Flux::Application.routes.draw do |map|
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
 
-  resources :users
-  resource  :user_session
   resource  :timeline
   resources :time_slots
+  resources :users
+  resources :projects
+  resource  :user_session
+  resource  :user_session
 
   root :to => "users#show"
 
