@@ -1,5 +1,5 @@
 <h1>Projects of <%= @current_company %></h1>
 
-<% for current_company.projects do |proj| %>
-  <p>Project name : <%= proj.name %></p>
+<% @project.each do |cp| %>
+  <p>Project name : <%= link_to cp.name, project_url(cp) %></p>
 <% end %>

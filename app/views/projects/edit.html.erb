@@ -1,6 +1,6 @@
 <h1>Project</h1>
 
-<% form_for @project, :url => projects_path do |f| %>
+<% form_for @project, :url => project_path(@project) do |f| %>
   <%= f.error_messages %>
   <%= render :partial => "form", :object => f %>
   <%= f.submit "Update project" %>

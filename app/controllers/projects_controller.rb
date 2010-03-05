@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
     @project = current_company.projects.find(params[:id])
     if @project.update_attributes(params[:project])
       flash[:notice] = "Project updated!"
-      redirect_to project_path(@project)
+      redirect_to project_url
     else
       render :action => :edit
     end
