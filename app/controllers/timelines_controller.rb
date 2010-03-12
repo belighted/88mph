@@ -4,6 +4,7 @@ class TimelinesController < ApplicationController
 
   def edit
     @projects = current_company.projects.all # TODO later, scope to the projects the user is *interested* in
+    @time_slot = current_user.current_time_slot
   end
 
   def update
