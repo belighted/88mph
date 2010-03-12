@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   acts_as_authentic
   belongs_to :company
   has_many :time_slots
+  has_many :invitations
 
   before_create :find_or_create_company_from_email_domain
 
