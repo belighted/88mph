@@ -1,9 +1,9 @@
 <h1>Projects of <%= @current_company %></h1>
 
-<% @project.each do |cp| %>
-  <ul>
-    <li>Project name : <%= link_to cp.name, project_url(cp) %></li>
-  </ul>
-<% end %>
+<ul>
+  <% @project.each do |cp| %>
+    <li><%= link_to cp.name, project_url(cp) %></li>
+  <% end %>
+</ul>
 
 <p><%= link_to "Create new project", new_project_path %></p>

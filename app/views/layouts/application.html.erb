@@ -15,7 +15,6 @@
       <%= link_to "Dashboard", edit_timeline_path %> |
       <%= link_to "Users", users_path %> |
       <%= link_to "Projects", projects_path %> |
-      <%= link_to "My Account", user_path(current_user) %> |
       <%= link_to "Logout", user_session_path, :method => :delete %>
     <% else %>
       <%= link_to "Register", new_user_path %> |

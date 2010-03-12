@@ -1,0 +1,8 @@
+%h1== Users of #{current_company}
+
+%ul
+  - @users.each do |u|
+    %li
+      = link_to(u,u)
+      - if u == current_user
+        (you!)
