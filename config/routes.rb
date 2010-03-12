@@ -1,4 +1,4 @@
-Flux::Application.routes.draw do |map|
+Flux::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -53,6 +53,7 @@ Flux::Application.routes.draw do |map|
   resource  :timeline
   resources :time_slots
   resources :users
+  resources :invitations
   resources :projects
   resource  :user_session
 
