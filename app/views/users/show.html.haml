@@ -1,0 +1,26 @@
+%h1= @user
+
+= link_to 'Edit profile', edit_user_path(@user)
+
+%h2 Projects
+
+- form_for @user, :url => user_path(@user) do |f|
+  %ul
+    - current_company.projects.each do |p|
+      %li
+        [ ]
+        = p
+  = f.submit "Update"
+
+%h2 Timeline
+
+- if @user.time_slots.any?
+  %ul
+    - @user.time_slots.each do |ts|
+      %li
+        Start:
+        %strong= ts.start
+        Project:
+        %strong= ts.project
+- else
+  %p Nothing in the timeline yet for this user.

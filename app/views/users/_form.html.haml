@@ -1,0 +1,16 @@
+%ol
+  %li
+    = form.label :first_name
+    = form.text_field :first_name
+  %li
+    = form.label :last_name
+    = form.text_field :last_name
+  %li
+    = form.label :email
+    = form.text_field :email
+  %li
+    = form.label :password, form.object.new_record? ? nil : "Change password"
+    = form.password_field :password
+  %li
+    = form.label :password_confirmation
+    = form.password_field :password_confirmation
