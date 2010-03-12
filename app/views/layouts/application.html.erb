@@ -13,6 +13,7 @@
   <div id='container'>
     <% if current_user %>
       <%= link_to "Dashboard", edit_timeline_path %> |
+      <%= link_to "Users", users_path %> |
       <%= link_to "Projects", projects_path %> |
       <%= link_to "My Account", user_path(current_user) %> |
       <%= link_to "Logout", user_session_path, :method => :delete %>
