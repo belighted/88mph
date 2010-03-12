@@ -3,3 +3,12 @@
 
 en:
   hello: "Hello world"
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  time:
+    formats:
+      only_time: "%H:%M"
+      only_date: "%d/%m/%Y"
+    am: 'am'
+    pm: 'pm'
