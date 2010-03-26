@@ -7,8 +7,8 @@
       - if u == current_user
         (you!)
 
-- form_for :inviation, :url => invitations_path do |f|
+- form_for :invitation, :url => invitations_path do |f|
   = f.error_messages
-  = f.label :email
-  = f.text_field :email
+  = f.label :invited_email
+  = f.text_field :invited_email
   = f.submit

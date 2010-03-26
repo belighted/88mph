@@ -1,15 +1,21 @@
-class Invitation < ActiveRecord::Base
+class Invitation
+  include ActiveModel::Validations
 
-  belongs_to :user
+  attr_accessor :invitor, :invited_email
 
-  attr_accessible :email
+  validates :invited_email, :presence => true, :format => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :length => { :maximum => 200 }
 
-  after_create :send_invitation
-
-  validates :email, :presence => true, :format => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :length => { :maximum => 200 }
-
-  def send_invitation
-    Mailer.invite(self.user, self.email).deliver
+  def initialize(invitor, invited_email)
+    @invitor, @invited_email = invitor, invited_email
   end
 
+  def save
+    send_invitation if valid?
+  end
+
+  protected
+
+  def send_invitation
+    UserMailer.invite(self).deliver
+  end
 end
