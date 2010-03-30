@@ -1,6 +1,6 @@
 <section id="head-a">
   <img src="images/default.png" alt="">
-  <h2>@current_company</h2>
+  <h2><%= @current_company %></h2>
   <p class="company-title">Quality through passion</p>
   <div id="invite-user">
     <form method="post" action="">
@@ -23,10 +23,9 @@
     <li>
       <%= link_to cp.name, project_url(cp) %>
       <p class="action-link">
-        <a href="<%= project_url(cp) %>"><img src="images/show.png" alt="show"></a>
-        <a href="<%= edit_project_url(cp) %>"><img src="images/edit.png" alt="edit"></a>
-        <a href="<%=  %>"><img src="images/destroy.png" alt="destroy"></a>
-        <%= link_to image_tag("destroy.png", :border => 0), project_path(cp), :method => :delete %>
+        <%= link_to image_tag("show.png", :border => 0, :alt => "Show", :title => "Show"), project_url(cp) %>
+        <%= link_to image_tag("edit.png", :border => 0, :alt => "Edit", :title => "Edit"), edit_project_url(cp) %>
+        <%= link_to image_tag("destroy.png", :border => 0, :alt => "Delete", :title => "Delete"), project_path(cp), :method => :delete %>
       </p>
     </li>
   <% end %>
