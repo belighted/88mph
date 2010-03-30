@@ -1,0 +1,14 @@
+%section#head-a
+  %h2= @project.name
+  %p.project-title Awesome project with awesome colors
+  %ul.project-resume
+    %li
+      Total time:
+      %span 564 hours
+    %li
+      This month:
+      %span 164 hours
+    %li
+      This week:
+      %span 38 hours
+%p= link_to "Edit", edit_project_url(@project)
