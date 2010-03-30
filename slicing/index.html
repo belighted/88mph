@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Belighted">
+    <title>88mph</title>
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" media="screen" href="stylesheets/reset-min.css">
+    <link rel="stylesheet" media="screen" href="stylesheets/main.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="javascripts/checkbox.js"></script>
+  </head>
+  <body>
+    <header>
+      <section id="user-bar">
+        <p>
+          Welcome to the future <em><a href="user_edit.html">Romain Gérard</a></em>! <span class="user-status">You've been on Idle for 2 hours</span> <a href="notlogged.html" class="logout-link">logout</a>
+        </p>
+      </section>
+      <section id="flash">
+        <div id="flash-message">
+          <p>Flash message<span>Successfully logged in</span></p>
+        </div>
+      </section>
+      <h1><span>88</span>mph</h1>
+      <nav id="main">
+        <ul>
+          <li>
+            <a href="index.html" class="active-link">What are you working on?</a>
+          </li>
+          <li>
+            <a href="user_index.html">Users</a>
+          </li>
+          <li>
+            <a href="project_index.html">Projects</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id="wrap">
+      <section id="content">
+        <h1>What are you working on?</h1>
+        <section>
+          <div class="form-a" id="work-on">
+            <ul class="radiolist">
+              <li>
+                <input type="radio" name="work" value="idle" checked="checked">
+                <span>Idle</span>
+              </li>
+              <li>
+                <input type="radio" name="work" value="internal">
+                <span>Internal</span>
+              </li>
+              <li>
+                <input type="radio" name="work" value="valipat">
+                <span>Valipat</span>
+              </li>
+              <li>
+                <input type="radio" name="work" value="solidaris">
+                <span>Solidaris</span>
+              </li>
+              <li>
+                <input type="radio" name="work" value="xray">
+                <span>Xray</span>
+              </li>
+            </ul>
+            <p class="action-link"><a href="project_new.html"><span>Create new project</span></a></p>
+          </div>
+        </section>
+      </section>
+    </section>
+    <footer>
+      <div id="author-link"><a href="">88mph by Belighted</a></div>
+    </footer>
+  </body>
+</html>

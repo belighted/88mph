@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Belighted">
+    <title>88mph</title>
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" media="screen" href="stylesheets/reset-min.css">
+    <link rel="stylesheet" media="screen" href="stylesheets/main.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="javascripts/checkbox.js"></script>
+  </head>
+  <body>
+    <header>
+      <section id="user-bar">
+        <p>
+          Welcome to the future <em><a href="user_edit.html">Romain Gérard</a></em>! <span class="user-status">You've been on Idle for 2 hours</span> <a href="notlogged.html" class="logout-link">logout</a>
+        </p>
+      </section>
+      <section id="flash">
+        <div id="flash-message">
+          <p>Flash message<span>Successfully logged in</span></p>
+        </div>
+      </section>
+      <h1><span>88</span>mph</h1>
+      <nav id="main">
+        <ul>
+          <li>
+            <a href="index.html">What are you working on?</a>
+          </li>
+          <li>
+            <a href="user_index.html">Users</a>
+          </li>
+          <li>
+            <a href="project_index.html" class="active-link">Projects</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id="wrap">
+      <section id="content">
+        <section id="head-a">
+          <img src="images/default.png" alt="">
+          <h2>Belighted</h2>
+          <p class="company-title">Quality through passion</p>
+          <div id="invite-user">
+            <form method="post" action="">
+              <ol>
+                <li>
+                  <label for="username">Invite user</label>
+                  <input type="text" name="username" id="new-user">
+                  <span>@belighted.com</span>
+                </li>
+              </ol>
+              <p><input type="submit" value="Invite"></p>
+            </form>
+          </div>
+        </section>
+        <h1>Projects list</h1>
+        <section>
+          <ol id="project-list">
+            <li>
+              <a href="project_show.html">Idle</a>
+              <p class="action-link">
+                <a href=""><img src="images/show.png" alt="show"></a>
+                <a href=""><img src="images/edit.png" alt="edit"></a>
+                <a href=""><img src="images/destroy.png" alt="destroy"></a>
+              </p>
+            </li>
+            <li>
+              <a href="user_show.html">Internal</a>
+              <p class="action-link">
+                <a href=""><img src="images/show.png" alt="show"></a>
+                <a href=""><img src="images/edit.png" alt="edit"></a>
+                <a href=""><img src="images/destroy.png" alt="destroy"></a>
+              </p>
+            </li>
+            <li>
+              <a href="user_show.html">Solisaris</a>
+              <p class="action-link">
+                <a href=""><img src="images/show.png" alt="show"></a>
+                <a href=""><img src="images/edit.png" alt="edit"></a>
+                <a href=""><img src="images/destroy.png" alt="destroy"></a>
+              </p>
+            </li>
+            <li>
+              <a href="user_show.html">Valipat</a>
+              <p class="action-link">
+                <a href=""><img src="images/show.png" alt="show"></a>
+                <a href=""><img src="images/edit.png" alt="edit"></a>
+                <a href=""><img src="images/destroy.png" alt="destroy"></a>
+              </p>
+            </li>
+            <li>
+              <a href="user_show.html">Xray</a>
+              <p class="action-link">
+                <a href=""><img src="images/show.png" alt="show"></a>
+                <a href=""><img src="images/edit.png" alt="edit"></a>
+                <a href=""><img src="images/destroy.png" alt="destroy"></a>
+              </p>
+            </li>
+          </ol>
+        </section>
+        <h1>Company Charts</h1>
+        <section>
+
+        </section>
+      </section>
+    </section>
+    <footer>
+      <div id="author-link"><a href="">88mph by Belighted</a></div>
+    </footer>
+  </body>
+</html>

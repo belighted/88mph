@@ -1,0 +1,35 @@
+<section id="head-a">
+  <img src="images/default.png" alt="">
+  <h2>@current_company</h2>
+  <p class="company-title">Quality through passion</p>
+  <div id="invite-user">
+    <form method="post" action="">
+      <ol>
+        <li>
+          <label for="username">Invite user</label>
+          <input type="text" name="username" id="new-user">
+          <span>@belighted.com</span>
+        </li>
+      </ol>
+      <p><input type="submit" value="Invite"></p>
+    </form>
+  </div>
+</section>
+
+<h1>Projects of <%= @current_company %></h1>
+
+<ol id="project-list">
+  <% @project.each do |cp| %>
+    <li>
+      <%= link_to cp.name, project_url(cp) %>
+      <p class="action-link">
+        <a href="<%= project_url(cp) %>"><img src="images/show.png" alt="show"></a>
+        <a href="<%= edit_project_url(cp) %>"><img src="images/edit.png" alt="edit"></a>
+        <a href="<%=  %>"><img src="images/destroy.png" alt="destroy"></a>
+        <%= link_to image_tag("destroy.png", :border => 0), project_path(cp), :method => :delete %>
+      </p>
+    </li>
+  <% end %>
+</ol>
+
+<p><%= link_to "Create new project", new_project_path %></p>

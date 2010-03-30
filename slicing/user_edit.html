@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Belighted">
+    <title>88mph</title>
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" media="screen" href="stylesheets/reset-min.css">
+    <link rel="stylesheet" media="screen" href="stylesheets/main.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="javascripts/checkbox.js"></script>
+  </head>
+  <body>
+    <header>
+      <section id="user-bar">
+        <p>
+          Welcome to the future <em><a href="user_edit.html">Romain Gérard</a></em>! <span class="user-status">You've been on Idle for 2 hours</span> <a href="notlogged.html" class="logout-link">logout</a>
+        </p>
+      </section>
+      <section id="flash">
+        <div id="flash-message">
+          <p>Flash message<span>Successfully logged in</span></p>
+        </div>
+      </section>
+      <h1><span>88</span>mph</h1>
+      <nav id="main">
+        <ul>
+          <li>
+            <a href="index.html">What are you working on?</a>
+          </li>
+          <li>
+            <a href="user_index.html" class="active-link">Users</a>
+          </li>
+          <li>
+            <a href="project_index.html">Projects</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id="wrap">
+      <section id="content">
+        <section id="head-a">
+          <img src="images/default.png" alt="">
+          <h2>Romain Gérard</h2>
+          <p class="user-role">Webdesigner</p>
+          <p class="user-email">romain.gerard<span class="user-company">@belighted.com<span></p>
+          <div class="head-action"><a href="user_show.html">Show your profile</a></div>
+        </section>
+        <h1>User informations</h1>
+        <section>
+          <div class="form-a" id="user-edit">
+            <form method="post" action="">
+              <ol>
+                <li>
+                  <label for="fullname">Fullname</label>
+                  <input type="text" name="fullname" id="user-edit-fullname">
+                </li>
+                <li>
+                  <label for="company">Company</label>
+                  <input type="text" name="company" id="user-edit-company">
+                </li>
+                <li>
+                  <label for="function">Function</label>
+                  <input type="text" name="function" id="user-edit-function">
+                </li>
+                <li>
+                  <label for="company">Email</label>
+                  <input type="text" name="company" id="user-edit-company">
+                </li>
+                <li>
+                  <label for="change-password">Change password</label>
+                  <input type="password" name="change-password" id="user-edit-password">
+                </li>
+                <li>
+                  <label for="repassword">Password<span>confirmation</span></label>
+                  <input type="password" name="repassword" id="user-edit-repassword">
+                </li>
+              </ol>
+              <p class="form-submit"><span class="button"><input type="submit" value="Update"></span></p>
+            </form>
+          </div>
+        </section>
+      </section>
+    </section>
+    <footer>
+      <div id="author-link"><a href="">88mph by Belighted</a></div>
+    </footer>
+  </body>
+</html>

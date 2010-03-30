@@ -1,27 +1,73 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <%= javascript_include_tag 'jquery-1.4.1.min' %>
-  <%= javascript_include_tag 'rails' %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-  <div id='top'>
-    <h1>88mph<%= " | #{current_company}" if current_company %></h1>
-  </div>
-  <div id='container'>
-    <% if current_user %>
-      <%= link_to "Dashboard", edit_timeline_path %> |
-      <%= link_to "Users", users_path %> |
-      <%= link_to "Projects", projects_path %> |
-      <%= link_to "Logout", user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Log In", new_user_session_path %>
-    <% end %>
-    <div id='content'>
-      <%= yield %>
-    </div>
-  </div>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Belighted">
+    <title>88mph</title>
+    <link rel="icon" href="/images/favicon.png">
+    <%= stylesheet_link_tag 'reset-min'%>
+    <%= stylesheet_link_tag 'main'%>
+    <%= javascript_include_tag 'jquery-1.4.1.min' %>
+    <%= javascript_include_tag 'rails' %>
+    <%= javascript_include_tag 'checkbox' %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+
+    <header>
+      <section id="user-bar">
+        <% if current_user %>
+          <p>
+            Welcome to the future <em><%= link_to current_user, current_user %></em>!
+            <% if current_user.current_time_slot %>
+              <span class="user-status">You started working on <strong><%= current_user.current_time_slot.project %></strong> <%= relevant_time(current_user.current_time_slot.start) %></span>
+            <% end %>
+            <%= link_to "logout", user_session_path, :method => :delete, :class => "logout-link" %>
+          </p>
+        <% else %>
+          <%= render :partial => "_shared/login" %>
+        <% end %>
+      </section>
+      <section id="flash">
+        <div id="flash-message">
+          <p>
+            <% flash.each do |name, msg| %>
+              Flash message<%= content_tag :span, msg, :class => "msg #{name}" %>
+            <% end %>
+          </p>
+        </div>
+      </section>
+      <h1><span>88</span>mph</h1>
+      <nav id="main">
+        <ul>
+          <% if current_user %>
+            <li>
+              <%= link_to "What are you working on?", edit_timeline_url %>
+            </li>
+            <li>
+              <%= link_to "Users", users_path %>
+            </li>
+            <li>
+              <%= link_to "Projects", projects_url %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Register", new_user_path %>
+            </li>
+            <li>
+              <%= link_to "Log In", new_user_session_path %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    <section id="wrap">
+      <section id="content">
+        <%= yield %>
+      </section>
+    </section>
+    <footer>
+      <div id="author-link"><a href="http://www.belighted.com">88mph by Belighted</a></div>
+    </footer>
+  </body>
 </html>
