@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Belighted">
+    <title>88mph</title>
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" media="screen" href="stylesheets/reset-min.css">
+    <link rel="stylesheet" media="screen" href="stylesheets/main.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="javascripts/checkbox.js"></script>
+  </head>
+  <body>
+    <header>
+      <section id="user-bar">
+        <p>
+          Welcome to the future <em><a href="user_edit.html">Romain Gérard</a></em>! <span class="user-status">You've been on Idle for 2 hours</span> <a href="notlogged.html" class="logout-link">logout</a>
+        </p>
+      </section>
+      <section id="flash">
+        <div id="flash-message">
+          <p>Flash message<span>Successfully logged in</span></p>
+        </div>
+      </section>
+      <h1><span>88</span>mph</h1>
+      <nav id="main">
+        <ul>
+          <li>
+            <a href="index.html">What are you working on?</a>
+          </li>
+          <li>
+            <a href="user_index.html" class="active-link">Users</a>
+          </li>
+          <li>
+            <a href="project_index.html">Projects</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section id="wrap">
+      <section id="content">
+        <section id="head-a">
+          <img src="images/default.png" alt="">
+          <h2>Romain Gérard</h2>
+          <p class="user-role">Webdesigner</p>
+          <p class="user-email">romain.gerard<span class="user-company">@belighted.com<span></p>
+          <div class="head-action"><a href="user_edit.html">Edit your profile</a></div>
+        </section>
+        <h1>Projects</h1>
+        <section>
+          <form method="post" action="">
+            <ol class="checklist">
+              <li>
+                <input type="checkbox" name="idle" id="pro-idle">
+                <label for="idle">Idle</label>
+              </li>
+              <li>
+                <input type="checkbox" name="internal" id="pro-internal">
+                <label for="internal">Internal</label>
+              </li>
+              <li>
+                <input type="checkbox" name="solidaris" id="pro-solidaris">
+                <label for="solidaris">Solidaris</label>
+              </li>
+              <li>
+                <input type="checkbox" name="valipat" id="pro-valipat">
+                <label for="valipat">Valipat</label>
+              </li>
+              <li>
+                <input type="checkbox" name="xray" id="pro-xray">
+                <label for="xray">Xray</label>
+              </li>
+            </ol>
+          </form>
+        </section>
+        <h1>Timeline</h1>
+        <section id="user-timeline">
+          <div class="calendar">
+            <a href="">...</a> | <a href="">Mon 5th</a> | <a href="">Tues 6th</a> | <a href="" class="date-today">Wed 7th</a> | <a href="" class="date-active">Thurs 8th</a> | <a href="">Fri 9th</a> | <a href="">...</a>
+          </div>
+          <div class="timeline">
+            <ol>
+              <li>
+                <label for="start_time">Start at</label>
+                <input type="text" name="start_time" id="start-time">
+                <label for="start_work">on</label>
+                <select name="start_work" id="start-work">
+                  <option value="Idle">Idle</option>
+                  <option value="Internal">Internal</option>
+                  <option value="Solidaris">Solidaris</option>
+                  <option value="Valipat">Internal</option>
+                  <option value="Xray">Internal</option>
+                </select>
+              </li>
+              <li>
+                <label for="start_time">Start at</label>
+                <input type="text" name="start_time" id="start-time">
+                <label for="start_work">on</label>
+                <select name="start_work" id="start-work">
+                  <option value="Idle">Idle</option>
+                  <option value="Internal">Internal</option>
+                  <option value="Solidaris">Solidaris</option>
+                  <option value="Valipat">Valipat</option>
+                  <option value="Xray">Xray</option>
+                </select>
+                <span class="add-link"><a href="">Add</a></span>
+              </li>
+            </ol>
+            <p class="form-submit"><span class="button"><input type="submit" value="Update"></span></p>
+          </div>
+        </section>
+      </section>
+    </section>
+    <footer>
+      <div id="author-link"><a href="">88mph by Belighted</a></div>
+    </footer>
+  </body>
+</html>

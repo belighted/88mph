@@ -4,5 +4,20 @@
 
 - form_for @user, :url => user_path(@user) do |f|
   = f.error_messages
-  = render :partial => "form", :object => f
+  %ol
+    %li
+      = f.label :first_name
+      = f.text_field :first_name
+    %li
+      = f.label :last_name
+      = f.text_field :last_name
+    %li
+      = f.label :email
+      = f.text_field :email
+    %li
+      = f.label :password, f.object.new_record? ? nil : "Change password"
+      = f.password_field :password
+    %li
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
   = f.submit

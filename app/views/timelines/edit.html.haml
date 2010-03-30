@@ -1,12 +1,5 @@
 %h1 What are you working on right now?
 
-- if @time_slot
-  %p
-    You started working on
-    %strong= @time_slot.project
-    =relevant_time(@time_slot.start)
-    \.
-
 - form_for :time_slot, :url => timeline_path, :html => {:method => :put} do |f|
   - @projects.each do |p|
     = f.radio_button :project_id, p.id
