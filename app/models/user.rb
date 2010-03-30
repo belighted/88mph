@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   before_create :find_or_create_company_from_email_domain
 
+  accepts_nested_attributes_for :participations, :allow_destroy => true
+
   def current_time_slot
     self.time_slots.find(:first, :conditions => { :end => nil }) rescue nil
   end

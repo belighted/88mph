@@ -6,10 +6,14 @@
 
 - form_for @user, :url => user_path(@user) do |f|
   %ul
-    - current_company.projects.each do |p|
+    - current_company.projects.each_with_index do |p, i|
       %li
-        [ ]
-        = p
+        = hidden_field_tag "user[participations_attributes][#{i}][project_id]", p.id
+        = hidden_field_tag "user[participations_attributes][#{i}][_destroy]", 1
+        = check_box_tag "user[participations_attributes][#{i}][_destroy]", 0, current_user.projects.include?(p), :id => "user_participations_attributes_#{i}__destroy_1"
+        - if current_user.projects.include?(p)
+          = hidden_field_tag "user[participations_attributes][#{i}][id]", current_user.participations.find_by_project_id(p.id).id
+        = label_tag "user_participations_attributes_#{i}__destroy_1", p
   = f.submit "Update"
 
 %h2 Timeline

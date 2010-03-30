@@ -3,7 +3,7 @@ class TimelinesController < ApplicationController
   before_filter :require_user
 
   def edit
-    @projects = current_company.projects.all # TODO later, scope to the projects the user is *interested* in
+    @projects = current_user.projects
     @time_slot = current_user.current_time_slot
   end
 

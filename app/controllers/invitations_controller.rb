@@ -1,8 +1,8 @@
 class InvitationsController < ApplicationController
 
   def create
-    @inviation = Invitation.new(params[:inviation])
-    @inviation.user = current_user
+    @inviation = Invitation.new(current_user, params[:invitation][:invited_email])
+
     if @inviation.save
       flash[:notice] = "Invitation sent!"
     else
