@@ -42,13 +42,13 @@
         <ul>
           <% if current_user %>
             <li>
-              <%= link_to "What are you working on?", edit_timeline_url %>
+              <%= link_to "What are you working on?", edit_timeline_url, :class => ("active-link" if controller.controller_name == 'timelines') %>
             </li>
             <li>
-              <%= link_to "Users", users_path %>
+              <%= link_to "Users", users_path, :class => ("active-link" if controller.controller_name == 'users') %>
             </li>
             <li>
-              <%= link_to "Projects", projects_url %>
+              <%= link_to "Projects", projects_url, :class => ("active-link" if controller.controller_name == 'projects') %>
             </li>
           <% else %>
             <li>

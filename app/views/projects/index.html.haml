@@ -1,7 +1,0 @@
-%h1== Projects of #{current_company}
-
-%ul
-  - @project.each do |cp|
-    %li= link_to cp.name, project_url(cp)
-
-%p= link_to "Create new project", new_project_path

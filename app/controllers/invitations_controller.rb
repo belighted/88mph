@@ -1,9 +1,9 @@
 class InvitationsController < ApplicationController
 
   def create
-    @inviation = Invitation.new(current_user, params[:invitation][:invited_email])
+    @invitation = Invitation.new(current_user, params[:invitation][:invited_email_local]+"@"+Mail::Address.new(current_user.email).domain)
 
-    if @inviation.save
+    if @invitation.save
       flash[:notice] = "Invitation sent!"
     else
       flash[:error] = "Invitation not sent!"

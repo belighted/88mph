@@ -1,15 +1,26 @@
-%h1 Register
-
-- form_for @user, :url => users_path do |f|
-  = f.error_messages
-  %ol
-    %li
-      = f.label :email
-      = f.text_field :email
-    %li
-      = f.label :password, f.object.new_record? ? nil : "Change password"
-      = f.password_field :password
-    %li
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation
-  = f.submit "Register"
+%h1 What's 88mph?
+%section.notlogged
+  #intro
+    %p
+      %strong 88mph is a timer tracking application for companies.
+    %p
+      With 88mph you’ll be able to manage projects of your company,
+      see who is working and take a look at stats for each project.
+  #form-register
+    - form_for @user, :url => users_path do |f|
+      = f.error_messages
+      %ol
+        %li
+          = f.label :email
+          = f.text_field :email
+        %li
+          = f.label :password, f.object.new_record? ? nil : "Change password"
+          = f.password_field :password
+        %li
+          = f.label :password_confirmation, "Password<span>confirmation</span>"
+          = f.password_field :password_confirmation
+      %p.form-info
+        A company will be automatically created with the email domain name.
+      %p.form-submit
+        %span.button
+          = f.submit "Sign up now"

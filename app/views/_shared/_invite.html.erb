@@ -1,16 +1,18 @@
 <div id="invite-user">
-  <% form_for :inviation, :url => invitations_path do |f| %>
+  <% form_for :invitation, :url => invitations_path do |f| %>
     <%= f.error_messages %>
     <ol>
       <li>
-        <%= f.label :email %>
-        <%= f.text_field :email %>
+        <%= f.label :invited_email_local, "Invite user" %>
+        <%= f.text_field :invited_email_local %>
+        <span>@<%= Mail::Address.new(current_user.email).domain %></span>
       </li>
     </ol>
-    <p><%= f.submit %></p>
+    <p><%= f.submit "Invite" %></p>
   <% end %>
 </div>
 
+<!--
 <div id="invite-user">
   <form method="post" action="">
     <ol>
@@ -23,3 +25,4 @@
     <p><input type="submit" value="Invite"></p>
   </form>
 </div>
+-->

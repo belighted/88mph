@@ -1,3 +1,5 @@
+require 'action_mailer'
+
 class Invitation
   include ActiveModel::Validations
 
