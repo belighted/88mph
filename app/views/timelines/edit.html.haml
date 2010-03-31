@@ -1,8 +1,12 @@
-%h1 What are you working on right now?
+%h1 What are you working on?
+%section
+  %div{:class => "form-a", :id => "work-on"}
+    - form_for :time_slot, :url => timeline_path, :html => {:method => :put} do |f|
+      %ul.radiolist
+        - @projects.each do |p|
+          %li
+            = f.radio_button :project_id, p.id
+            = f.label "project_id_#{p.id}", p.name
 
-- form_for :time_slot, :url => timeline_path, :html => {:method => :put} do |f|
-  - @projects.each do |p|
-    = f.radio_button :project_id, p.id
-    = f.label "project_id_#{p.id}", p.name
-    %br
-  = f.submit "Track time!"
+      %p.form-submit
+        %span.button= f.submit "Track time!"

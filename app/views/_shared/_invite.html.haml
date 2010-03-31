@@ -6,6 +6,6 @@
         = f.label :invited_email_local, "Invite user"
         = f.text_field :invited_email_local
         %span
-          == @ #{Mail::Address.new(current_user.email).domain}
+          == @#{Mail::Address.new(current_user.email).domain}
     %p
       = f.submit "Invite"

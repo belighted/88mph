@@ -29,7 +29,7 @@ $(document).ready(function() {
 
   //Radio
   var radiobutton = $(".radiolist :radio");
-  var radiolabel = $(".radiolist span");
+  var radiolabel = $(".radiolist label");
 
   //Set radio display
   radiobutton.hide();

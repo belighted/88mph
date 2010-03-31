@@ -1,5 +1,5 @@
 %section#head-a
-  =image_tag("images/default.png", :alt => "Default Avatar")
+  =image_tag("default.png", :alt => "Default Avatar")
   %h2= @current_company
   %p.company-title Quality through passion
   = render :partial => "_shared/invite"
@@ -15,4 +15,5 @@
         = link_to image_tag("show.png", :border => 0, :alt => "Show", :title => "Show"), project_url(cp)
         = link_to image_tag("edit.png", :border => 0, :alt => "Edit", :title => "Edit"), edit_project_url(cp)
         = link_to image_tag("destroy.png", :border => 0, :alt => "Delete", :title => "Delete"), project_path(cp), :method => :delete
-%p= link_to "Create new project", new_project_path
+%p.link-a
+  %span= link_to "Create new project", new_project_path

@@ -439,6 +439,39 @@ header nav ul li .active-link:hover {
   color: #fff;
 }
 
+#content .link-a {
+  line-height: 38px;
+  margin: 10px 0 0 80px;
+}
+
+#content .link-a span {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  text-shadow: 0 -1px 1px rgba(0,0,0,1);
+  line-height: 38px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#content .link-a span:hover, #work-on .link-a span:focus {
+  background-color: #446E58;
+}
+
+#content .link-a span a {
+  display: inline-block;
+  line-height: 38px;
+  border: 1px solid rgba(255,255,255,.35);
+  margin: 1px;
+  padding: 0 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0, 0, 0, .0)), to(rgba(0, 0, 0, .45)));
+  background-image: -moz-linear-gradient(270deg, rgba(0, 0, 0, .0), rgba(0, 0, 0, .45));
+}
+
 /* Working on form */
 
 #work-on {
@@ -462,42 +495,9 @@ header nav ul li .active-link:hover {
   padding: 1px;
 }
 
-#work-on ul .active-work span {
+#work-on ul .active-work label {
   display: block;
   border: 1px solid rgba(255,255,255,.3);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0, 0, 0, .0)), to(rgba(0, 0, 0, .45)));
-  background-image: -moz-linear-gradient(270deg, rgba(0, 0, 0, .0), rgba(0, 0, 0, .45));
-}
-
-#work-on .action-link {
-  line-height: 38px;
-  margin: 10px 0 0 80px;
-}
-
-#work-on .action-link a {
-  display: inline-block;
-  background-color: #333;
-  color: #fff;
-  text-shadow: 0 -1px 1px rgba(0,0,0,1);
-  line-height: 38px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-
-#work-on .action-link a:hover, #work-on .action-link a:focus {
-  background-color: #446E58;
-}
-
-#work-on .action-link a span {
-  display: inline-block;
-  line-height: 38px;
-  border: 1px solid rgba(255,255,255,.35);
-  margin: 1px;
-  padding: 0 10px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
