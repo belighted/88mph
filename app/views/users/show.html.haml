@@ -1,23 +1,29 @@
-%h1= @user
+%section#head-a
+  =image_tag("default.png", :alt => "Default Avatar")
+  %h2= @user
+  %p.user-role= @user.role
+  %p.user-email
+    = @user.email.split("@").first
+    %span.user-company><
+      == @#{@user.company.domain}
+  %div.head-action= link_to "Edit your profile", edit_user_path(@user)
+%h1 Projects
+%section
+  %div.form-b
+    - form_for @user, :url => user_path(@user) do |f|
+      %ol.checklist
+        - current_company.projects.each_with_index do |p, i|
+          %li
+            = hidden_field_tag "user[participations_attributes][#{i}][project_id]", p.id
+            = hidden_field_tag "user[participations_attributes][#{i}][_destroy]", 1
+            = check_box_tag "user[participations_attributes][#{i}][_destroy]", 0, current_user.projects.include?(p), :id => "user_participations_attributes_#{i}__destroy_1"
+            - if current_user.projects.include?(p)
+              = hidden_field_tag "user[participations_attributes][#{i}][id]", current_user.participations.find_by_project_id(p.id).id
+            = label_tag "user_participations_attributes_#{i}__destroy_1", p
+      %p.form-submit
+        %span.button= f.submit "Update"
 
-= link_to 'Edit profile', edit_user_path(@user)
-
-%h2 Projects
-
-- form_for @user, :url => user_path(@user) do |f|
-  %ul
-    - current_company.projects.each_with_index do |p, i|
-      %li
-        = hidden_field_tag "user[participations_attributes][#{i}][project_id]", p.id
-        = hidden_field_tag "user[participations_attributes][#{i}][_destroy]", 1
-        = check_box_tag "user[participations_attributes][#{i}][_destroy]", 0, current_user.projects.include?(p), :id => "user_participations_attributes_#{i}__destroy_1"
-        - if current_user.projects.include?(p)
-          = hidden_field_tag "user[participations_attributes][#{i}][id]", current_user.participations.find_by_project_id(p.id).id
-        = label_tag "user_participations_attributes_#{i}__destroy_1", p
-  = f.submit "Update"
-
-%h2 Timeline
-
+%h1 Timeline
 - if @user.time_slots.any?
   %ul
     - @user.time_slots.each do |ts|

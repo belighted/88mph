@@ -1,23 +1,36 @@
-%h1== Edit user #{@user}
+%section#head-a
+  =image_tag("default.png", :alt => "Default Avatar")
+  %h2= @user
+  %p.user-role= @user.role
+  %p.user-email
+    = @user.email.split("@").first
+    %span.user-company><
+      == @#{@user.company.domain}
+  %div.head-action= link_to "Show your profile", user_path(@user)
 
-%h2 Personal profile
-
-- form_for @user, :url => user_path(@user) do |f|
-  = f.error_messages
-  %ol
-    %li
-      = f.label :first_name
-      = f.text_field :first_name
-    %li
-      = f.label :last_name
-      = f.text_field :last_name
-    %li
-      = f.label :email
-      = f.text_field :email
-    %li
-      = f.label :password, f.object.new_record? ? nil : "Change password"
-      = f.password_field :password
-    %li
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation
-  = f.submit
+%h1 User informations
+%section
+  %div{:class => "form-a", :id => "user-edit"}
+    - form_for @user, :url => user_path(@user) do |f|
+      = f.error_messages
+      %ol
+        %li
+          = f.label :first_name
+          = f.text_field :first_name
+        %li
+          = f.label :last_name
+          = f.text_field :last_name
+        %li
+          = f.label :email
+          = f.text_field :email
+        %li
+          = f.label :role, "Function"
+          = f.text_field :role
+        %li
+          = f.label :password, f.object.new_record? ? nil : "Change password"
+          = f.password_field :password
+        %li
+          = f.label :password_confirmation, "Password<span>confirmation</span>"
+          = f.password_field :password_confirmation
+      %p.form-submit
+        %span.button= f.submit "Update"

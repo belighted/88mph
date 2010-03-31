@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
         flash[:notice] = "Project created!"
         redirect_back_or_default project_url(@project)
       else
+        flash[:notice] = "Oops, there is a problem"
         render :action => :new
       end
   end

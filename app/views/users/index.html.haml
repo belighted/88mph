@@ -1,14 +1,15 @@
-%h1== Users of #{current_company}
-
-%ul
-  - @users.each do |u|
-    %li
-      = link_to(u,u)
-      - if u == current_user
-        (you!)
-
-- form_for :invitation, :url => invitations_path do |f|
-  = f.error_messages
-  = f.label :invited_email
-  = f.text_field :invited_email
-  = f.submit
+%section#head-a
+  =image_tag("default.png", :alt => "Default Avatar")
+  %h2= @current_company
+  %p.company-title Quality through passion
+  = render :partial => "_shared/invite"
+%h1 Members of the team
+%section
+  %ol#member-list
+    - @users.each do |u|
+      %li
+        = link_to(u,u)
+        - if u == current_user
+          (you!)
+        %em= u.role
+        %p.action-link= link_to image_tag("delete.png"), u

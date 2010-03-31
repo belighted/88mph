@@ -3,10 +3,7 @@
   %h2= @current_company
   %p.company-title Quality through passion
   = render :partial => "_shared/invite"
-
-%h1
-  == Project of #{@current_company}
-
+%h1 List of projects
 %ol#project-list
   -@project.each do |cp|
     %li

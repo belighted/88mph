@@ -403,12 +403,12 @@ header nav ul li .active-link:hover {
   padding: 10px;
 }
 
-#content .form-a .form-submit {
+#content .form-a .form-submit, #content .form-b .form-submit {
   text-align: right;
   margin: 10px 0 0 0;
 }
 
-#content .form-a .form-submit .button {
+#content .form-a .form-submit .button, #content .form-b .form-submit .button {
   display: inline-block;
   background-color: #214A6A;
   line-height: 38px;
@@ -417,7 +417,7 @@ header nav ul li .active-link:hover {
   border-radius: 5px;
 }
 
-#content .form-a .form-submit .button input[type="submit"] {
+#content .form-a .form-submit .button input[type="submit"], #content .form-b .form-submit .button input[type="submit"] {
   display: inline-block;
   border: 1px solid rgba(255,255,255,.35);
   margin: 1px;
@@ -433,15 +433,62 @@ header nav ul li .active-link:hover {
   font-size: 18px;
 }
 
-#content .form-a .form-submit .button:hover input[type="submit"] {
+#content .form-a .form-submit .button:hover input[type="submit"], #content .form-b .form-submit .button:hover input[type="submit"] {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, .35)));
   background-image: -moz-linear-gradient(270deg, rgba(0, 0, 0, .15), rgba(0, 0, 0, .6));
   color: #fff;
 }
 
+#content .form-b .form-submit {
+  text-align: left;
+}
+
+/* Form error */
+
+#content .form-a .errorExplanation {
+  border-bottom: 1px solid #4B060C;
+  padding-bottom: 7px;
+  -webkit-box-shadow: rgba(255,255,255,.8) 0px 1px 1px;
+  -moz-box-shadow: rgba(255,255,255,.8) 0px 1px 1px;
+  box-shadow: rgba(255,255,255,.8) 0px 1px 1px;
+}
+
+#content .form-a .errorExplanation h2 {
+  color: #4B060C;
+  margin: 0 0 10px 0;
+}
+
+#content .form-a .errorExplanation p {
+  color: #4B060C;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  text-align: left !important;
+}
+
+#content .form-a .errorExplanation ul {
+  padding: 0 0 0 10px;
+}
+
+#content .form-a .errorExplanation ul li {
+  list-style: disc inside;
+  font-size: 12px;
+}
+
+#content .form-a ol li .fieldWithErrors {
+  display: inline-block;
+}
+
+#content .form-a ol li .fieldWithErrors input[type="text"], #content .form-a ol li .fieldWithErrors input[type="password"] {
+  border: 1px solid #4B060C;
+  background-color: rgba(75,6,12,.2);
+}
+
+/* Special link */
+
 #content .link-a {
   line-height: 38px;
-  margin: 10px 0 0 80px;
+  margin: 10px 0 0 0px;
 }
 
 #content .link-a span {
@@ -453,6 +500,12 @@ header nav ul li .active-link:hover {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+
+#content .link-a span a {
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 #content .link-a span:hover, #work-on .link-a span:focus {
@@ -664,20 +717,8 @@ header nav ul li .active-link:hover {
   background: url(../images/delorean.png) no-repeat right top;
 }
 
-#form-register {
-  display: inline-block;
-  background-color: rgba(204,204,204,.4);
-  -webkit-box-shadow: rgba(0,0,0,.25) 0px 2px 3px;
-  -moz-box-shadow: rgba(0,0,0,.25) 0px 2px 3px;
-  box-shadow: rgba(0,0,0,.25) 0px 2px 3px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  padding: 10px;
-}
-
 #form-register ol li {
-  padding: 0 0 10px 0;
+  padding: 5px 0;
 }
 
 #form-register ol li label {
@@ -721,40 +762,8 @@ header nav ul li .active-link:hover {
   margin: 0 5px 0 0;
 }
 
-#form-register p .forgot-pass:hover {
-  text-decoration: underline;
-}
-
 #form-register .form-submit .button {
-  display: inline-block;
-  background-color: #4B060C;
-  line-height: 38px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-
-#form-register .form-submit .button input[type="submit"] {
-  display: inline-block;
-  line-height: 38px;
-  border: 1px solid rgba(255,255,255,.35);
-  margin: 1px;
-  padding: 0 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  background-image: -webkit-gradient(linear, 0% 50%, 0% 100%, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, .45)));
-  background-image: -moz-linear-gradient(270deg, rgba(0, 0, 0, .0), rgba(0, 0, 0, .45));
-  color: #ddd;
-  text-shadow: 0 -1px 1px rgba(0,0,0,1);
-  font-weight: bold;
-  font-size: 18px;
-}
-
-#form-register .form-submit .button:hover input[type="submit"] {
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.05)), to(rgba(0, 0, 0, .35)));
-  background-image: -moz-linear-gradient(270deg, rgba(0, 0, 0, .15), rgba(0, 0, 0, .6));
-  color: #fff;
+  background-color: #4B060C !important;
 }
 
 /* User edit */
@@ -910,9 +919,11 @@ footer {
   background-image: -moz-linear-gradient(270deg, rgba(204, 204, 204, .4), rgba(255, 255, 255, .2));
   height: 46px;
   border-top: 1px solid rgba(255,255,255,.4);
+  /* Bug with google chrome
   -webkit-box-shadow: rgba(204,204,204,.4) 0px -1px 1px;
   -moz-box-shadow: rgba(204,204,204,.4) 0px -1px 1px;
   box-shadow: rgba(204,204,204,.4) 0px -1px 1px;
+  */
   margin-top: 20px;
   position: fixed;
   width: 100%;

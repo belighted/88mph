@@ -1,5 +1,15 @@
-%h1 Project
-
+%section#head-a
+  =image_tag("default.png", :alt => "Default Avatar")
+  %h2= @current_company
+  %p.company-title Quality through passion
+  %ul.company-resume
+    %li
+      Current projects:
+      %span= @current_company.projects.count
+    %li
+      Number of workers:
+      %span= @current_company.users.count
+%h1 New project
 %div{:class => "form-a", :id => "project-new"}
   -form_for @project, :url => projects_path do |f|
     = f.error_messages
