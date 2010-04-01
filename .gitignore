@@ -6,6 +6,7 @@ db/*.sqlite3
 db/sphinx/*
 config/*.sphinx.conf
 log/*.pid
+public/system
 
 # Ignore all backup files
 *~
