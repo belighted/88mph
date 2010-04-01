@@ -1,5 +1,5 @@
 %section#head-a
-  =image_tag("default.png", :alt => "Default Avatar")
+  = image_tag @user.avatar.url(:thumb)
   %h2= @user
   %p.user-role= @user.role
   %p.user-email

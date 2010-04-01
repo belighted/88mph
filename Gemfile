@@ -4,6 +4,7 @@ source 'http://gemcutter.org'
 gem "rails", "3.0.0.beta"
 gem "pg"
 gem "haml"
+gem 'paperclip', :git => 'git://github.com/JasonKing/paperclip.git', :branch => 'rails3'
 #gem "authlogic"
 
 ## Bundle edge rails:

@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :participations
   has_many :projects, :through => :participations
 
+  has_attached_file :avatar, :styles => { :thumb => "70x70>" }
+
   before_create :find_or_create_company_from_email_domain
 
   accepts_nested_attributes_for :participations, :allow_destroy => true
