@@ -4,13 +4,13 @@
   %ul.project-resume
     %li
       Total time:
-      %span 564 hours
+      %span= @project.total_time
     %li
       This month:
-      %span 164 hours
+      %span= @project.total_time_this_month
     %li
       This week:
-      %span 38 hours
+      %span= @project.total_time_this_week
 %h1 Workers on the project
 %section
   - if @project.participations.any?
@@ -24,13 +24,13 @@
           %ul.member-time
             %li
               Total time:
-              %span 20 hours 20 minutes
+              %span= part.total_time
             %li
               This month:
-              %span 20 hours 20 minutes
+              %span= part.total_time_this_month
             %li
               This week:
-              %span 3 hours 04 minutes
+              %span= part.total_time_this_week
   - else
     %p There is nobody participating on this project.
 %h1 Charts

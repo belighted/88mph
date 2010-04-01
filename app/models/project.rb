@@ -11,4 +11,16 @@ class Project < ActiveRecord::Base
     name
   end
 
+  def total_time
+    TimeSlot.total_time(["project_id = ?", id])
+  end
+
+  def total_time_this_week
+    TimeSlot.total_time_this_week(["project_id = ?", id])
+  end
+
+  def total_time_this_month
+    TimeSlot.total_time_this_month(["project_id = ?", id])
+  end
+
 end
