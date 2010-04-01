@@ -2,11 +2,11 @@ class User < ActiveRecord::Base
 
   acts_as_authentic
   belongs_to :company
-  has_many :time_slots
+  has_many :time_slots, :order => 'start DESC', :limit => 20
   has_many :participations
   has_many :projects, :through => :participations
 
-  has_attached_file :avatar, :styles => { :thumb => "70x70>" }
+  has_attached_file :avatar, :styles => { :thumb => "70x70>" }, :default_url => "/images/missing_:style.png"
 
   before_create :find_or_create_company_from_email_domain
 

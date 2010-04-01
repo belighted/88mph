@@ -25,11 +25,11 @@
 
 %h1 Timeline
 - if @user.time_slots.any?
-  %ul
+  %ul#time-slots
     - @user.time_slots.each do |ts|
       %li
         Start:
-        %strong= ts.start
+        %strong= (ts.start).strftime('on %d/%m/%Y at %H:%M')
         Project:
         %strong= ts.project
 - else

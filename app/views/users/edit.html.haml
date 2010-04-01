@@ -27,6 +27,7 @@
           = f.label :role, "Function"
           = f.text_field :role
         %li
+          = f.label :avatar
           = f.file_field :avatar
         %li
           = f.label :password, f.object.new_record? ? nil : "Change password"

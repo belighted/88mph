@@ -13,22 +13,26 @@
       %span 38 hours
 %h1 Workers on the project
 %section
-  %ul#project-members
-    %li
-      .member-infos
-        =image_tag("default.png", :alt => "Default Avatar")
-        %h3 Romain Gérard
-        %p.user-role Webdesigner
-      %ul.member-time
+  - if @project.participations.any?
+    %ul#project-members
+      - @project.participations.each do |part|
         %li
-          Total time:
-          %span 20 hours 20 minutes
-        %li
-          This month:
-          %span 20 hours 20 minutes
-        %li
-          This week:
-          %span 3 hours 04 minutes
+          .member-infos
+            =image_tag(part.user.avatar.url(:thumb))
+            %h3= part.user
+            %p.user-role= part.user.role
+          %ul.member-time
+            %li
+              Total time:
+              %span 20 hours 20 minutes
+            %li
+              This month:
+              %span 20 hours 20 minutes
+            %li
+              This week:
+              %span 3 hours 04 minutes
+  - else
+    %p There is nobody participating on this project.
 %h1 Charts
 %section
   #charts-a

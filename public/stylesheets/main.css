@@ -715,6 +715,18 @@ header nav ul li .active-link:hover {
   color: #fff;
 }
 
+#time-slots li {
+  font-weight: bold;
+  color: #666;
+  margin: 3px 0;
+}
+
+#time-slots li strong {
+  color: #214A6A;
+  margin: 0 20px 0 0;
+  font-weight: normal;
+}
+
 /* Content Register form */
 
 .notlogged {
