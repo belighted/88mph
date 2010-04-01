@@ -5,6 +5,7 @@ class UserSessionsController < ApplicationController
 
   def new
     @user_session = UserSession.new
+    redirect_back_or_default root_url
   end
 
   def create
