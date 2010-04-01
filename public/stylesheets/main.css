@@ -558,6 +558,10 @@ header nav ul li .active-link:hover {
   background-image: -moz-linear-gradient(270deg, rgba(0, 0, 0, .0), rgba(0, 0, 0, .45));
 }
 
+#work-on .form-submit {
+  margin: 10px 0 0 100px !important;
+}
+
 /* Content member list and projects list*/
 
 #member-list li, #project-list li {
