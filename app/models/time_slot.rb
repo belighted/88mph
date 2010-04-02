@@ -1,5 +1,3 @@
-require 'pp'
-
 class TimeSlot < ActiveRecord::Base
 
   belongs_to :project
@@ -18,7 +16,6 @@ class TimeSlot < ActiveRecord::Base
 
   def self.total_time_for_period(where="", period_start=Time.parse("1900-01-01"), period_end=Time.parse("2100-01-01"))
     timeslots = []
-    pp where
     query = TimeSlot.where(where)
     timeslots << query.wholly_included_in_period(period_start, period_end).all
     timeslots << query.overlapping_beginning_of_period(period_start, period_end).all
@@ -28,7 +25,7 @@ class TimeSlot < ActiveRecord::Base
       timeslot.start = period_start if (timeslot.start < period_start)
       timeslot.end = [period_end,Time.now].min if (timeslot.end.nil? || (timeslot.end > period_end))
     end
-    formatted_duration_from_timeslots(timeslots)
+    timeslots.inject(0) { |sum,timeslot| sum + (timeslot.end - timeslot.start) }.to_i
   end
 
   def self.total_time(where="")
@@ -47,15 +44,6 @@ class TimeSlot < ActiveRecord::Base
 
   def set_start_time
     self.start = Time.now
-  end
-
-  def self.formatted_duration_from_timeslots(timeslots)
-    seconds = timeslots.inject(0) { |sum,timeslot| sum + (timeslot.end - timeslot.start) }.to_i
-    minutes = (seconds / 60.0).round
-    elapsed_time = Time.now.at_beginning_of_year.advance(:minutes => minutes)
-    [[:days, elapsed_time.yday-1], [:hours, elapsed_time.hour], [:minutes, elapsed_time.min]].map do |elem|
-      elem.last.zero? ? "" : "#{elem.last} #{elem.first.to_s}"
-    end.join(" ")
   end
 
 end

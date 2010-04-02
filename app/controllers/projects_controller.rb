@@ -23,6 +23,13 @@ class ProjectsController < ApplicationController
 
   def show
     @project = current_company.projects.find(params[:id])
+    @participation_times = @project.participations.map do |p|
+      { :user => p.user,
+        :total_time => p.total_time,
+        :total_time_this_month => p.total_time_this_month,
+        :total_time_this_week => p.total_time_this_week }
+    end
+    @max_time = @participation_times.max_by{|p| p[:total_time]}[:total_time]
   end
 
   def edit

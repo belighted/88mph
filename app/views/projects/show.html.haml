@@ -4,40 +4,44 @@
   %ul.project-resume
     %li
       Total time:
-      %span= @project.total_time
+      %span= formatted_duration(@project.total_time)
     %li
       This month:
-      %span= @project.total_time_this_month
+      %span= formatted_duration(@project.total_time_this_month)
     %li
       This week:
-      %span= @project.total_time_this_week
+      %span= formatted_duration(@project.total_time_this_week)
 %h1 Workers on the project
 %section
-  - if @project.participations.any?
+  - if @participation_times.any?
     %ul#project-members
-      - @project.participations.each do |part|
+      - @participation_times.each do |part|
         %li
           .member-infos
-            =image_tag(part.user.avatar.url(:thumb))
-            %h3= part.user
-            %p.user-role= part.user.role
+            =image_tag(part[:user].avatar.url(:thumb))
+            %h3= part[:user]
+            %p.user-role= part[:user].role
           %ul.member-time
             %li
               Total time:
-              %span= part.total_time
+              %span= formatted_duration(part[:total_time])
             %li
               This month:
-              %span= part.total_time_this_month
+              %span= formatted_duration(part[:total_time_this_month])
             %li
               This week:
-              %span= part.total_time_this_week
+              %span= formatted_duration(part[:total_time_this_week])
   - else
     %p There is nobody participating on this project.
 %h1 Charts
 %section
   #charts-a
-    %ul
-      %li
-        %span.worker-name Romain Gérard
-        .worker-chart 20
-        hours
+    - if @participation_times.any?
+      %ul
+        - @participation_times.each do |part|
+          %li
+            %span.worker-name= part[:user]
+            .worker-chart{:style=>"width:#{(600.0*(part[:total_time].to_f/@max_time)).round}px"}= hours_from_seconds(part[:total_time])
+            hours
+    - else
+      %p There is nobody participating on this project.
