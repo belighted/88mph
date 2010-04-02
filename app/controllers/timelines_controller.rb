@@ -8,7 +8,7 @@ class TimelinesController < ApplicationController
   end
 
   def update
-    if params[:project_id]
+    if params[:time_slot] && params[:time_slot][:project_id]
       @project = current_company.projects.find(params[:time_slot][:project_id])
       if @project.save
         current_user.timeline.current_project = @project
