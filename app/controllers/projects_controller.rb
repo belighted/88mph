@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
         :total_time_this_week => p.total_time_this_week,
         :total_time_this_period => p.total_time_for_period(@period_start,@period_end) }
     end
-    @max_time = @participation_times.max_by{|p| p[:total_time_this_period]}[:total_time_this_period]
+    @max_time = @participation_times.max_by{|p| p[:total_time_this_period]}[:total_time_this_period] rescue 0
   end
 
   def edit

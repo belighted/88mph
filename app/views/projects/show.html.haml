@@ -1,16 +1,17 @@
 %section#head-a
   %h2= @project.name
-  %p.project-title= @project.description
-  %ul.project-resume
-    %li
-      Total time:
-      %span= formatted_duration(@project.total_time)
-    %li
-      This month:
-      %span= formatted_duration(@project.total_time_this_month)
-    %li
-      This week:
-      %span= formatted_duration(@project.total_time_this_week)
+  - if @participation_times.any?
+    %p.project-title= @project.description
+    %ul.project-resume
+      %li
+        Total time:
+        %span= formatted_duration(@project.total_time)
+      %li
+        This month:
+        %span= formatted_duration(@project.total_time_this_month)
+      %li
+        This week:
+        %span= formatted_duration(@project.total_time_this_week)
 %h1 Workers on the project
 %section
   - if @participation_times.any?
