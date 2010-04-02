@@ -164,6 +164,11 @@ header #user-bar form p input[type="submit"]:hover {
   color: #fff;
 }
 
+header #user-bar p span em {
+  color: #fff;
+  font-weight: bold;
+}
+
 header #user-bar p em a {
   color: #fff;
 }

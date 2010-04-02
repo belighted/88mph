@@ -15,14 +15,14 @@ class UserSessionsController < ApplicationController
       redirect_back_or_default root_url
     else
       flash[:notice] = "There is a problem with your email or password"
-      render :action => :new
+      redirect_to root_url
     end
   end
 
   def destroy
     current_user_session.destroy
     flash[:notice] = "Logout successful!"
-    redirect_back_or_default root_url
+    redirect_to root_url
   end
 
 end
