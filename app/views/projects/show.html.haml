@@ -1,7 +1,12 @@
 %section#head-a
   %h2= @project.name
+<<<<<<< HEAD
   %p.project-title= @project.description
   - if @participation_times.any?
+=======
+  - if @participation_times.any?
+    %p.project-title= @project.description
+>>>>>>> 101ab4465bb374aa2b748f4fe83122627c8f25f8
     %ul.project-resume
       %li
         Total time:
@@ -12,9 +17,12 @@
       %li
         This week:
         %span= formatted_duration(@project.total_time_this_week)
+<<<<<<< HEAD
   - else
     %p.project-resume
       Nobody has worked on this project yet.
+=======
+>>>>>>> 101ab4465bb374aa2b748f4fe83122627c8f25f8
 %h1 Workers on the project
 %section
   - if @participation_times.any?
