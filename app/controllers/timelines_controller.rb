@@ -8,11 +8,13 @@ class TimelinesController < ApplicationController
   end
 
   def update
-    @project = current_company.projects.find(params[:time_slot][:project_id])
-    if @project.save
-      current_user.timeline.current_project = @project
-      flash[:notice] = "Timeline updated!"
-      redirect_to edit_timeline_url # victory!
+    if params[:project_id]
+      @project = current_company.projects.find(params[:time_slot][:project_id])
+      if @project.save
+        current_user.timeline.current_project = @project
+        flash[:notice] = "Timeline updated!"
+        redirect_to edit_timeline_url # victory!
+      end
     else
       flash[:notice] = "Please select a project to track!"
       redirect_to edit_timeline_url
