@@ -45,7 +45,10 @@
         - @participation_times.each do |part|
           %li
             %span.worker-name= part[:user]
-            .worker-chart{:style=>"width:#{(600.0*(part[:total_time_this_period].to_f/@max_time)).round}px"}= hours_from_seconds(part[:total_time_this_period])
-            hours
+            - if part[:total_time_this_period] > 1.second
+              .worker-chart{:style=>"width:#{(600.0*(part[:total_time_this_period].to_f/@max_time)).round}px"}= hours_from_seconds(part[:total_time_this_period])
+              hours
+            - else
+              You didn't worked enough yet on this project
     - else
       %p There is nobody participating on this project.

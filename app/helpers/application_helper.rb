@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def hours_from_seconds(seconds)
-    ((seconds / 36.0).round)/100.0
+    (seconds / 3600.0).round(2)
   end
 
 end
