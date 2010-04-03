@@ -1,11 +1,14 @@
 # Edit this Gemfile to bundle your application's dependencies.
+
 source 'http://gemcutter.org'
 
-gem "rails", "3.0.0.beta"
+require File.expand_path('../rails3beta2fixes', __FILE__)
+gem "rails", ">=3.0.0.beta"
+
 gem "pg"
 gem "haml"
 gem 'paperclip', :git => 'git://github.com/JasonKing/paperclip.git', :branch => 'rails3'
-#gem "authlogic"
+gem "authlogic", :git => 'git://github.com/binarylogic/authlogic.git'
 
 ## Bundle edge rails:
 # gem "rails", :git => "git://github.com/rails/rails.git"
