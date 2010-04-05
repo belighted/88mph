@@ -3,7 +3,7 @@
 source 'http://gemcutter.org'
 
 require File.expand_path('../rails3beta2fixes', __FILE__)
-gem "rails", ">=3.0.0.beta"
+gem "rails", "3.0.0.beta"
 
 gem "pg"
 gem "haml"
