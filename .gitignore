@@ -38,3 +38,4 @@ db/schema.rb
 .bundle
 doc/api
 doc/app
+rerun.txt
