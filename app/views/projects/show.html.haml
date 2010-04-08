@@ -56,3 +56,9 @@
               You haven't worked enough yet on this project.
     - else
       %p There is nobody participating on this project.
+    #time-frame
+      - form_tag project_url(@project), :method => "get" do
+        = select_tag "timeframe", options_for_select([["",""], ["This week","thisweek"], ["This month","thismonth"], ["This year","thisyear"],["Last week","lastweek"], ["Last month", "lastmonth"], ["Last year", "lastyear"]])
+        = hidden_field_tag :period_start,  params[:period_start]
+        = hidden_field_tag :period_end,  params[:period_end]
+        = submit_tag "Update", :name => nil

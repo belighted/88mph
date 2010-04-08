@@ -940,11 +940,11 @@ footer {
   background-image: -moz-linear-gradient(270deg, rgba(204, 204, 204, .4), rgba(255, 255, 255, .2));
   height: 46px;
   border-top: 1px solid rgba(255,255,255,.4);
-  /* Bug with google chrome
+  /* Bug in GoogleChrome
   -webkit-box-shadow: rgba(204,204,204,.4) 0px -1px 1px;
+  */
   -moz-box-shadow: rgba(204,204,204,.4) 0px -1px 1px;
   box-shadow: rgba(204,204,204,.4) 0px -1px 1px;
-  */
   margin-top: 20px;
   position: fixed;
   width: 100%;
