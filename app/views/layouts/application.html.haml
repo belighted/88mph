@@ -19,15 +19,17 @@
             Welcome to the future
             %em== #{link_to current_user, current_user}!
             - if current_user.current_time_slot
-              %span.user-status><
-                = "You started working on #{current_user.current_time_slot.project} #{relevant_time(current_user.current_time_slot.start)}"
+              %span.user-status
+                You started working on
+                %em= current_user.current_time_slot.project
+                = relevant_time(current_user.current_time_slot.start)
             = link_to "logout", user_session_path, :method => :delete, :class => "logout-link"
         - else
           = render :partial => "_shared/login"
       - flash.each do |name, msg|
         %section#flash
           #flash-message
-            %p== Flash message #{content_tag :span, msg, :class => "msg #{name}"}
+            %p== Message #{content_tag :span, msg, :class => "msg #{name}"}
       %h1
         %span>< 88
         mph

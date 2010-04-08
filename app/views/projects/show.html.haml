@@ -25,16 +25,20 @@
             =image_tag(part[:user].avatar.url(:thumb))
             %h3= part[:user]
             %p.user-role= part[:user].role
-          %ul.member-time
-            %li
-              Total time:
-              %span= formatted_duration(part[:total_time])
-            %li
-              This month:
-              %span= formatted_duration(part[:total_time_this_month])
-            %li
-              This week:
-              %span= formatted_duration(part[:total_time_this_week])
+          - if part[:total_time_this_period] > 1.second
+            %ul.member-time
+              %li
+                Total time:
+                %span= formatted_duration(part[:total_time])
+              %li
+                This month:
+                %span= formatted_duration(part[:total_time_this_month])
+              %li
+                This week:
+                %span= formatted_duration(part[:total_time_this_week])
+          - else
+            %p.member-time
+              You haven't worked enough yet on this project.
   - else
     %p There is nobody participating on this project.
 %h1 Charts
@@ -49,6 +53,12 @@
               .worker-chart{:style=>"width:#{(600.0*(part[:total_time_this_period].to_f/@max_time)).round}px"}= hours_from_seconds(part[:total_time_this_period])
               hours
             - else
-              You didn't worked enough yet on this project
+              You haven't worked enough yet on this project.
     - else
       %p There is nobody participating on this project.
+    #time-frame
+      - form_tag project_url(@project), :method => "get" do
+        = select_tag "timeframe", options_for_select([["",""], ["This week","thisweek"], ["This month","thismonth"], ["This year","thisyear"],["Last week","lastweek"], ["Last month", "lastmonth"], ["Last year", "lastyear"]])
+        = hidden_field_tag :period_start,  params[:period_start]
+        = hidden_field_tag :period_end,  params[:period_end]
+        = submit_tag "Update", :name => nil

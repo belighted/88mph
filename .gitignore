@@ -7,6 +7,7 @@ db/sphinx/*
 config/*.sphinx.conf
 log/*.pid
 public/system
+vendor/cache/*.gem
 
 # Ignore all backup files
 *~
