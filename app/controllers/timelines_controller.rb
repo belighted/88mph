@@ -1,5 +1,14 @@
 class TimelinesController < ApplicationController
 
+  def verify_authenticity_token
+    auth = Rack::Auth::Basic::Request.new(request.env)
+    if auth.provided? and auth.basic?
+      true
+    else
+      super
+    end
+  end
+
   before_filter :require_user
 
   def edit
@@ -16,22 +25,29 @@ class TimelinesController < ApplicationController
   end
 
   def update
-    if params[:time_slot]
-      if params[:time_slot][:project_name] # Cocoa Client Request # not working yet
-        @project = current_company.projects.find_by_name(params[:time_slot][:project_name])
-        p @project
-      elsif params[:time_slot][:project_id]
-        @project = current_company.projects.find(params[:time_slot][:project_id])
-        if @project.save
-          current_user.timeline.current_project = @project
-          flash[:notice] = "Timeline updated!"
+    respond_to do |format|
+      format.html do
+        if params[:time_slot]
+          if params[:time_slot][:project_id]
+            @project = current_company.projects.find(params[:time_slot][:project_id])
+            current_user.timeline.current_project = @project
+            flash[:notice] = "Timeline updated!"
+          else
+            flash[:notice] = "Please select a project to track!"
+          end
           redirect_to edit_timeline_url # victory!
         end
-      else
-        flash[:notice] = "Please select a project to track!"
-        redirect_to edit_timeline_url
+      end
+      
+      # Client Request
+      format.json do
+        if params[:time_slot][:project_name]
+          @project = current_company.projects.find_by_name(params[:time_slot][:project_name])
+          current_user.timeline.current_project = @project
+        end
+        
+        render :json => @project.id
       end
     end
   end
-
 end

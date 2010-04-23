@@ -16,7 +16,7 @@ gem "authlogic", :git => 'git://github.com/binarylogic/authlogic.git'
 # ActiveRecord requires a database adapter. By default,
 # Rails has selected sqlite3.
 #gem "sqlite3-ruby", :require => "sqlite3"
-gem "mysql", "2.7.0"
+gem "mysql", ">=2.7.0"
 ## Bundle the gems you use:
 # gem "bj"
 # gem "hpricot", "0.6"
@@ -29,7 +29,7 @@ gem "mysql", "2.7.0"
 #   gem "webrat"
 # end
 
-#group :test do
+group :test do
   # BDD stuff
   gem "factory_girl",     :git => "git://github.com/szimek/factory_girl.git",          :branch => "rails3"
   gem "capybara",         :git => "git://github.com/jnicklas/capybara.git",            :branch => "master"
@@ -39,4 +39,4 @@ gem "mysql", "2.7.0"
   gem "rspec-rails", "2.0.0.beta.4" #     :git => "git://github.com/rspec/rspec-rails.git",            :branch => "master"
   gem "faker"
   gem "launchy"
-#end
+end
