@@ -26,4 +26,29 @@ class Timeline
     end
   end
 
+  def self.get_period(type, time)
+    case type
+    when "thisweek"
+      start = time.round_to_day - time.wday
+      [start , start + 7.days]
+    when "thismonth"
+      start = time - time.mday.days
+      [start , start + time.days_in_month.days]
+    when "lastweek"
+      start = time.round_to_day - time.wday - 7.days
+      [start , start + 7.days]
+    when "lastmonth"
+      end_of_month = time - time.mday.days
+      start = end_of_month - (end_of_month-1.day).days_in_month.days
+      [start, end_of_month]
+    when "thisyear"
+      start = Time.local(time.year)
+      [start, start+1.year]
+    when "lastyear"
+      end_of_year = Time.local(time.year)
+      [end_of_year-1.year, end_of_year]
+    else
+      [Date.parse("1900-01-01"),Date.parse("2100-01-01")]
+    end
+  end
 end

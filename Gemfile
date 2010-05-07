@@ -29,14 +29,14 @@ gem "mysql", ">=2.7.0"
 #   gem "webrat"
 # end
 
-group :test do
-  # BDD stuff
-  gem "factory_girl",     :git => "git://github.com/szimek/factory_girl.git",          :branch => "rails3"
-  gem "capybara",         :git => "git://github.com/jnicklas/capybara.git",            :branch => "master"
-  gem "database_cleaner", :git => "git://github.com/bmabey/database_cleaner.git",      :branch => "master"
-  gem "cucumber",         :git => "git://github.com/aslakhellesoy/cucumber.git",       :branch => "master"
-  gem "cucumber-rails",   :git => "git://github.com/aslakhellesoy/cucumber-rails.git", :branch => "master"
-  gem "rspec-rails", "2.0.0.beta.4" #     :git => "git://github.com/rspec/rspec-rails.git",            :branch => "master"
-  gem "faker"
-  gem "launchy"
-end
+#group :test do
+#  # BDD stuff
+#  gem "factory_girl",     :git => "git://github.com/szimek/factory_girl.git",          :branch => "rails3"
+#  gem "capybara",         :git => "git://github.com/jnicklas/capybara.git",            :branch => "master"
+#  gem "database_cleaner", :git => "git://github.com/bmabey/database_cleaner.git",      :branch => "master"
+#  gem "cucumber",         :git => "git://github.com/aslakhellesoy/cucumber.git",       :branch => "master"
+#  gem "cucumber-rails",   :git => "git://github.com/aslakhellesoy/cucumber-rails.git", :branch => "master"
+#  gem "rspec-rails", "2.0.0.beta.4" #     :git => "git://github.com/rspec/rspec-rails.git",            :branch => "master"
+#  gem "faker"
+#  gem "launchy"
+#end

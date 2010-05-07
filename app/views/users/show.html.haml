@@ -9,6 +9,8 @@
   %div.head-action= link_to "Edit your profile", edit_user_path(@user)
 %h1 Projects
 %section
+- if !current_company.projects.empty?
+
   %div.form-b
     - form_for @user, :url => user_path(@user) do |f|
       %ol.checklist
@@ -22,14 +24,23 @@
             = label_tag "user_participations_attributes_#{i}__destroy_1", p
       %p.form-submit
         %span.button= f.submit "Update"
+- else
+  %p Please create some projects for your company first !
 
 %h1 Timeline
 - if @user.time_slots.any?
   %ul#time-slots
     - @user.time_slots.each do |ts|
       %li
+        = link_to image_tag("edit.png", :border => 0, :alt => "Edit", :title => "Edit"), edit_time_slot_url(ts)
         Start:
         %strong= (ts.start).strftime('on %d/%m/%Y at %H:%M')
+        - if !ts.end.nil?
+          End:
+          %strong= (ts.end).strftime('on %d/%m/%Y at %H:%M')
+        - if !ts.end.nil? && !ts.start.nil?
+          Time spent:
+          %strong= hours_from_seconds(ts.end - ts.start)
         Project:
         %strong= ts.project
 - else

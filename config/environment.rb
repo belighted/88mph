@@ -5,3 +5,5 @@ require File.expand_path('../application', __FILE__)
 Flux::Application.initialize!
 
 Haml::Template.options[:format] = :html5
+
+require 'lib/time'

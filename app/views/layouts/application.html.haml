@@ -9,6 +9,7 @@
     = stylesheet_link_tag 'main'
     = javascript_include_tag 'jquery-1.4.1.min'
     = javascript_include_tag 'rails'
+    = javascript_include_tag 'application'
     = javascript_include_tag 'checkbox'
     = csrf_meta_tag
   %body
@@ -38,6 +39,8 @@
           - if current_user
             %li
               = link_to "What are you working on?", edit_timeline_url, :class => ("active-link" if controller.controller_name == 'timelines')
+            %li
+              = link_to "Dashboard", dashboard_url, :class => ("active-link" if controller.controller_name == 'dashboards')
             %li
               = link_to "Users", users_path, :class => ("active-link" if controller.controller_name == 'users')
             %li

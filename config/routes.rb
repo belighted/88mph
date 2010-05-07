@@ -56,6 +56,7 @@ Flux::Application.routes.draw do
   resources :invitations
   resources :projects
   resource  :user_session
+  resource  :dashboard
 
   root :to => "users#new"
 

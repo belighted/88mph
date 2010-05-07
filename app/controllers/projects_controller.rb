@@ -23,16 +23,26 @@ class ProjectsController < ApplicationController
 
   def show
     @project = current_company.projects.find(params[:id])
-    @period_start = Time.parse(params[:period_start]) rescue Date.parse("1900-01-01")
-    @period_end = Time.parse(params[:period_end]) rescue Date.parse("2100-01-01")
+
+    @period_start = Timeline.get_period(params[:timeframe], Time.now)[0]
+    @period_end = Timeline.get_period(params[:timeframe], Time.now)[1]
+
     @participation_times = @project.participations.map do |p|
-      { :user => p.user,
+      { :id => p.id,
+        :user => p.user,
         :total_time => p.total_time,
         :total_time_this_month => p.total_time_this_month,
         :total_time_this_week => p.total_time_this_week,
         :total_time_this_period => p.total_time_for_period(@period_start,@period_end) }
     end
     @max_time = @participation_times.max_by{|p| p[:total_time_this_period]}[:total_time_this_period] rescue 0
+
+    respond_to do |format|
+      format.html
+      format.json{
+        render :json => {:participations => @participation_times, :max_time => @max_time}
+      }
+    end
   end
 
   def edit

@@ -1,0 +1,22 @@
+%section#head-a
+  = image_tag @user.avatar.url(:thumb)
+  %h2= @user
+  %p.user-role= @user.role
+  %p.user-email
+    = @user.email.split("@").first
+    %span.user-company><
+      == @#{@user.company.domain}
+  %div.head-action= link_to "Edit your profile", edit_user_path(@user)
+%h1 Edit Time Slot
+%section
+  %div.form-b
+    - form_for @time_slot, :url => time_slot_path(@time_slot) do |f|
+      %ol
+        %li
+          = f.label :start
+          = f.datetime_select :start, :order => [:day, :month, :year]
+        %li
+          =f.label :end
+          = f.datetime_select :end, :order => [:day, :month, :year]
+      %p.form-submit
+        %span.button= f.submit "Update"

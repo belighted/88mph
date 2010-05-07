@@ -47,10 +47,10 @@
     - if @participation_times.any?
       %ul
         - @participation_times.each do |part|
-          %li
-            %span.worker-name= part[:user]
+          %li{:index => part[:id]}
+            %span.worker-name= truncate(part[:user].to_s, :length => 22)
             - if part[:total_time_this_period] > 1.second
-              .worker-chart{:style=>"width:#{(600.0*(part[:total_time_this_period].to_f/@max_time)).round}px"}= hours_from_seconds(part[:total_time_this_period])
+              .worker-chart{:style=>"width:#{(25+(575.0*(part[:total_time_this_period].to_f/@max_time)).round)}px"}= hours_from_seconds(part[:total_time_this_period])
               hours
             - else
               You haven't worked enough yet on this project.
@@ -59,6 +59,7 @@
     #time-frame
       - form_tag project_url(@project), :method => "get" do
         = select_tag "timeframe", options_for_select([["",""], ["This week","thisweek"], ["This month","thismonth"], ["This year","thisyear"],["Last week","lastweek"], ["Last month", "lastmonth"], ["Last year", "lastyear"]])
-        = hidden_field_tag :period_start,  params[:period_start]
-        = hidden_field_tag :period_end,  params[:period_end]
-        = submit_tag "Update", :name => nil
+        = hidden_field_tag :project_id,  @project.id
+        %p.form-submit
+          %span.button
+            = submit_tag "Update", :name => nil, :id => "submit-timeframe"
