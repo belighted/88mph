@@ -14,3 +14,13 @@
         = link_to image_tag("destroy.png", :border => 0, :alt => "Delete", :title => "Delete"), project_path(cp), :method => :delete
 %p.link-a
   %span= link_to "Create new project", new_project_path
+
+%h1 Projects
+
+%table
+  - @project.each do |cp|
+    %tr
+      %th= cp.name
+      %td= (cp.total_time/Project.projects_total_time.to_f)*100.0 if !cp.total_time.nil?
+
+%div#holder

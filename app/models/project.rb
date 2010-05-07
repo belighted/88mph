@@ -23,4 +23,8 @@ class Project < ActiveRecord::Base
     TimeSlot.total_time_this_month(["project_id = ?", id])
   end
 
+  def self.projects_total_time
+    Project.all.inject{|project1, project2| project1.total_time + project2.total_time}
+  end
+
 end
