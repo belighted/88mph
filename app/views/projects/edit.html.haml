@@ -12,7 +12,10 @@
 %h1 Project
 %div{:class => "form-a", :id => "project-new"}
   - form_for @project, :url => project_path(@project) do |f|
-    = f.error_messages
+    - if @project.errors.any?
+      %ul
+        - @project.errors.full_messages.each do |msg|
+          %li = msg
     = render :partial => "form", :object => f
     %p.form-submit
       %span.button= f.submit "Update project"

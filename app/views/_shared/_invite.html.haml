@@ -1,6 +1,5 @@
 #invite-user
   -form_for :invitation, :url => invitations_path do |f|
-    = f.error_messages
     %ol
       %li
         = f.label :invited_email_local, "Invite user"

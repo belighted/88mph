@@ -12,7 +12,10 @@
 %section
   %div{:class => "form-a", :id => "user-edit"}
     - form_for @user, :url => user_path(@user), :html => { :multipart => true } do |f|
-      = f.error_messages
+      - if @user.errors.any?
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li = msg
       %ol
         %li
           = f.label :first_name
@@ -33,7 +36,7 @@
           = f.label :password, f.object.new_record? ? nil : "Change password"
           = f.password_field :password
         %li
-          = f.label :password_confirmation, "Password<span>confirmation</span>"
+          = f.label :password_confirmation, "Password confirmation"
           = f.password_field :password_confirmation
       %p.form-submit
         %span.button= f.submit "Update"

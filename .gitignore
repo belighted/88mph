@@ -20,6 +20,9 @@ vendor/cache/*.gem
 .#*
 .emacs*
 
+# Ignore Vim files
+*.swp
+
 # Ignore autotest (cucumber, rspec, ...) local configuration
 .autotest
 

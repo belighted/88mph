@@ -8,7 +8,10 @@
       see who is working and take a look at stats for each project.
   %div{:class => "form-a", :id => "form-register"}
     - form_for @user, :url => users_path do |f|
-      = f.error_messages
+      - if @user.errors.any?
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li = msg
       %ol
         %li
           = f.label :email
@@ -17,7 +20,7 @@
           = f.label :password, f.object.new_record? ? nil : "Change password"
           = f.password_field :password
         %li
-          = f.label :password_confirmation, "Password<span>confirmation</span>"
+          = f.label :password_confirmation, "Password confirmation"
           = f.password_field :password_confirmation
       %p.form-info
         A company will be automatically created with the email domain name.
