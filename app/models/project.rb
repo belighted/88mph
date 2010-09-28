@@ -24,7 +24,7 @@ class Project < ActiveRecord::Base
   end
 
   def self.projects_total_time
-    Project.all.inject{|project1, project2| project1.total_time + project2.total_time}
+    Project.all.inject(0){|result, project| result + project.total_time}.inspect
   end
 
 end
