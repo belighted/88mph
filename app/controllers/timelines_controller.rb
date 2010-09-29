@@ -37,16 +37,16 @@ class TimelinesController < ApplicationController
           redirect_to edit_timeline_url # fail!
         end
       end
-
-      # Client Request
       format.json do
-        if params[:time_slot][:project_name]
-          @project = current_company.projects.find_by_name(params[:time_slot][:project_name])
+        if params[:time_slot] && params[:time_slot][:project_name]
+          @project = current_company.projects.find(params[:time_slot][:project_name])
           current_user.timeline.current_project = @project
+          render :json => @project.id # victory!
+        else
+          render :json => "error" # fail!
         end
-
-        render :json => @project.id
       end
     end
   end
+
 end
