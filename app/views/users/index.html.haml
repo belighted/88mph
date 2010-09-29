@@ -1,7 +1,7 @@
 %section#head-a
   =image_tag("missing_thumb.png", :alt => "Default Avatar")
   %h2= @current_company
-  %p.company-title Quality through passion
+  %p= link_to @current_company.domain, "http://www.#{@current_company.domain}"
   = render :partial => "_shared/invite"
 %h1 Members of the team
 %section
