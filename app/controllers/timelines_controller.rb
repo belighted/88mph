@@ -39,7 +39,7 @@ class TimelinesController < ApplicationController
       end
       format.json do
         if params[:time_slot] && params[:time_slot][:project_name]
-          @project = current_company.projects.find(params[:time_slot][:project_name])
+          @project = current_company.projects.find_by_name(params[:time_slot][:project_name])
           current_user.timeline.current_project = @project
           render :json => @project.id # victory!
         else
