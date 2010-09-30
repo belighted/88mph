@@ -11,7 +11,7 @@
       %span= @current_company.users.count
 %h1 New project
 %div{:class => "form-a", :id => "project-new"}
-  -form_for @project, :url => projects_path do |f|
+  = form_for @project, :url => projects_path do |f|
     - if @project.errors.any?
       %ul
         - @project.errors.full_messages.each do |msg|

@@ -10,7 +10,7 @@
 %h1 Edit Time Slot
 %section
   %div.form-b
-    - form_for @time_slot, :url => time_slot_path(@time_slot) do |f|
+    = form_for @time_slot, :url => time_slot_path(@time_slot) do |f|
       %ol
         %li
           = f.label :start

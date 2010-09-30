@@ -1,5 +1,5 @@
 #invite-user
-  -form_for :invitation, :url => invitations_path do |f|
+  = form_for :invitation, :url => invitations_path do |f|
     %ol
       %li
         = f.label :invited_email_local, "Invite user"

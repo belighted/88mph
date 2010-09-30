@@ -2,7 +2,7 @@
 %section
   - if @projects.any?
     %div{:class => "form-a", :id => "work-on"}
-      - form_for :time_slot, :url => timeline_path, :html => {:method => :put} do |f|
+      = form_for :time_slot, :url => timeline_path, :html => {:method => :put} do |f|
         %ul.radiolist
           - @projects.each do |p|
             %li

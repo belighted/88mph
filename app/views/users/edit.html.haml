@@ -11,7 +11,7 @@
 %h1 User information
 %section
   %div{:class => "form-a", :id => "user-edit"}
-    - form_for @user, :url => user_path(@user), :html => { :multipart => true } do |f|
+    = form_for @user, :url => user_path(@user), :html => { :multipart => true } do |f|
       - if @user.errors.any?
         %ul
           - @user.errors.full_messages.each do |msg|
