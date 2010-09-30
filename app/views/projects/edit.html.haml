@@ -15,7 +15,7 @@
     - if @project.errors.any?
       %ul
         - @project.errors.full_messages.each do |msg|
-          %li = msg
+          %li= msg
     = render :partial => "form", :object => f
     %p.form-submit
       %span.button= f.submit "Update project"
