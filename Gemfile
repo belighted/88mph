@@ -1,6 +1,6 @@
-source :rubygems 
+source :gemcutter
 
-gem "rails"
+gem "rails", "3.0.0"
 
 gem "pg"
 gem "haml"
