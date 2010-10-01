@@ -8,9 +8,11 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :thumb => "70x70>" }, :default_url => "/images/missing_:style.png"
 
-  before_create :find_or_create_company_from_email_domain
+  before_validation :find_or_create_company_from_email_domain
 
   accepts_nested_attributes_for :participations, :allow_destroy => true
+
+  validates :company, :presence => true
 
   def current_time_slot
     self.time_slots.find(:first, :conditions => { :end => nil }) rescue nil
