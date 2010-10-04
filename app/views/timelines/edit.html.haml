@@ -5,11 +5,15 @@
       = form_for :time_slot, :url => timeline_path, :html => {:method => :put} do |f|
         %ul.radiolist
           - @projects.each do |p|
-            %li
-              = f.hidden_field :project_id, :value => p.id
-              = f.label "project_id_#{p.id}", p.name
-
+            - if (current_user.current_time_slot && current_user.current_time_slot.project == p) || @projects.count == 1
+              %li.active-work
+                = f.radio_button :project_id, p.id, :checked => true
+                = f.label "project_id_#{p.id}", p.name
+            - else
+              %li
+                = f.radio_button :project_id, p.id
+                = f.label "project_id_#{p.id}", p.name
         %p.form-submit
           %span.button= f.submit "Track time!"
   - else
-    %p Please create some projects for your company first !
+    %p Please create some projects for your company first and indicate on which ones you are working!
